@@ -10,7 +10,6 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/markbates/going/defaults"
 	"github.com/markbates/goth"
 	"golang.org/x/oauth2"
 )
@@ -175,7 +174,7 @@ func userFromReader(r io.Reader, user *goth.User) error {
 	}
 
 	user.UserID = u.ID
-	user.Email = defaults.String(u.Email, u.UserPrincipalName)
+	user.Email = u.UserPrincipalName
 	user.Name = u.Name
 	user.NickName = u.Name
 	user.FirstName = u.FirstName
